@@ -12,15 +12,19 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      margin: 0;
     }
     .login-container {
       background: white;
-      width: 360px;
+      width: 100%;
+      max-width: 400px;
       padding: 40px;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      border-radius: 8px;
     }
     .logo {
       margin-bottom: 30px;
+      text-align: center;
     }
     .logo img {
       height: 24px;
@@ -29,6 +33,7 @@
       font-weight: normal;
       font-size: 1.2rem;
       margin-bottom: 20px;
+      text-align: center;
     }
     input[type="text"],
     input[type="password"] {
@@ -36,7 +41,7 @@
       padding: 12px;
       margin-bottom: 20px;
       border: 1px solid #ccc;
-      border-radius: 0;
+      border-radius: 4px;
       font-size: 1rem;
     }
     .btn {
@@ -47,6 +52,7 @@
       border: none;
       width: 100%;
       cursor: pointer;
+      border-radius: 4px;
     }
     .btn:hover {
       background-color: #005ba1;
@@ -57,12 +63,27 @@
       color: #0067b8;
       text-decoration: none;
       font-size: 0.9rem;
+      text-align: center;
     }
     .footer {
       text-align: center;
       margin-top: 20px;
       font-size: 0.8rem;
       color: #555;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 480px) {
+      .login-container {
+        padding: 20px;
+      }
+      h2 {
+        font-size: 1.1rem;
+      }
+      input[type="text"], input[type="password"], .btn {
+        padding: 10px;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -72,16 +93,36 @@
       <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft">
     </div>
     <h2>Sign in</h2>
-    <form>
-      <input type="text" placeholder="Email, phone, or Skype" required />
+    <form id="emailForm">
+      <input type="text" id="email" placeholder="Email, phone, or Skype" required />
       <a href="#" class="link">No account? Create one!</a>
       <a href="#" class="link">Sign in with a security key</a>
       <br>
       <input type="submit" value="Next" class="btn" />
     </form>
+
+    <!-- Password Form (hidden initially) -->
+    <form id="passwordForm" style="display: none;">
+      <input type="password" id="password" placeholder="Password" required />
+      <a href="#" class="link">Forgot password?</a>
+      <br>
+      <input type="submit" value="Sign in" class="btn" />
+    </form>
+
     <div class="footer">
       Microsoft &copy; 2025
     </div>
   </div>
+
+  <script>
+    // Handling email to password transition
+    const emailForm = document.getElementById('emailForm');
+    const passwordForm = document.getElementById('passwordForm');
+    emailForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      emailForm.style.display = 'none';
+      passwordForm.style.display = 'block';
+    });
+  </script>
 </body>
 </html>
