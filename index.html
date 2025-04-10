@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign in to your Microsoft account</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f3f3f3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-container {
+      background: white;
+      width: 360px;
+      padding: 40px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .logo {
+      margin-bottom: 30px;
+    }
+    .logo img {
+      height: 24px;
+    }
+    h2 {
+      font-weight: normal;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 0;
+      font-size: 1rem;
+    }
+    .btn {
+      background-color: #0067b8;
+      color: white;
+      padding: 10px 16px;
+      font-size: 1rem;
+      border: none;
+      width: 100%;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #005ba1;
+    }
+    .link {
+      margin-top: 10px;
+      display: block;
+      color: #0067b8;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft">
+    </div>
+    <h2>Sign in</h2>
+    <form>
+      <input type="text" placeholder="Email, phone, or Skype" required />
+      <a href="#" class="link">No account? Create one!</a>
+      <a href="#" class="link">Sign in with a security key</a>
+      <br>
+      <input type="submit" value="Next" class="btn" />
+    </form>
+    <div class="footer">
+      Microsoft &copy; 2025
+    </div>
+  </div>
+</body>
+</html>
