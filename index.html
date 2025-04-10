@@ -6,71 +6,79 @@
   <title>Sign in to your Microsoft account</title>
   <style>
     body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f3f3f3;
-      margin: 0;
-      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f3f3f3;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
     }
     .login-container {
-      background: #ffffff;
+      background: white;
       width: 100%;
       max-width: 400px;
-      padding: 48px 40px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      padding: 40px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
     }
     .logo {
-      margin-bottom: 40px;
+      margin-bottom: 30px;
+      text-align: center;
     }
     .logo img {
-      height: 28px;
+      height: 24px;
     }
     h2 {
-      font-size: 1.5rem;
-      font-weight: 400;
-      margin: 0 0 24px;
+      font-weight: normal;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      text-align: center;
     }
     input[type="text"],
     input[type="password"] {
       width: 100%;
       padding: 12px;
-      font-size: 1rem;
+      margin-bottom: 20px;
       border: 1px solid #ccc;
-      border-radius: 0;
-      margin-bottom: 24px;
+      border-radius: 4px;
+      font-size: 1rem;
     }
     .btn {
-      width: 100%;
       background-color: #0067b8;
       color: white;
-      border: none;
-      padding: 12px;
+      padding: 10px 16px;
       font-size: 1rem;
+      border: none;
+      width: 100%;
       cursor: pointer;
     }
     .btn:hover {
       background-color: #005ba1;
     }
     .link {
+      margin-top: 10px;
       display: block;
-      text-align: left;
       color: #0067b8;
       text-decoration: none;
       font-size: 0.9rem;
-      margin-top: -16px;
-      margin-bottom: 24px;
+      text-align: center;
     }
     .footer {
-      font-size: 0.75rem;
-      color: #666;
       text-align: center;
-      margin-top: 24px;
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: #555;
     }
+    /* Mobile responsiveness */
     @media (max-width: 600px) {
       .login-container {
-        padding: 30px 20px;
+        padding: 20px;
+      }
+      h2 {
+        font-size: 1rem;
+      }
+      .btn {
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -81,28 +89,25 @@
       <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft">
     </div>
     <h2>Sign in</h2>
-
-    <!-- Email form -->
     <form id="emailForm">
       <input type="text" id="email" placeholder="Email, phone, or Skype" required />
       <a href="#" class="link" id="createAccountLink">No account? Create one!</a>
       <a href="#" class="link">Sign in with a security key</a>
+      <br>
       <input type="submit" value="Next" class="btn" />
     </form>
-
-    <!-- Password form -->
     <form id="passwordForm" style="display:none;">
-      <input type="password" id="password" placeholder="Password" required />
-      <input type="submit" value="Sign in" class="btn" />
+      <input type="password" id="password" placeholder="Enter your password" required />
+      <br>
+      <input type="submit" value="Sign In" class="btn" />
     </form>
-
     <div class="footer">
-      © Microsoft 2025
+      Microsoft &copy; 2025
     </div>
   </div>
 
   <script>
-    // Swap to password form
+    // Show password form when "Next" is clicked
     document.getElementById('emailForm').addEventListener('submit', function(e) {
       e.preventDefault();
       var email = document.getElementById('email').value;
@@ -112,12 +117,13 @@
       }
     });
 
-    // Fake login simulation
+    // Handle password submission
     document.getElementById('passwordForm').addEventListener('submit', function(e) {
       e.preventDefault();
       var password = document.getElementById('password').value;
       if (password) {
-        alert('Login successful (demo simulation)');
+        // Simulate a successful login by redirecting to a fake text file
+        window.location.href = 'fake-login-success.txt';
       }
     });
   </script>
