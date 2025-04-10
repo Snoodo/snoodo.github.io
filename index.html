@@ -21,24 +21,12 @@
       padding: 40px;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
     }
-    .header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 30px;
-    }
-    .logo-left {
-      flex: 0 0 auto;
-      margin-right: 10px;
-    }
-    .logo-left img {
-      height: 24px;
-    }
     .logo-text {
-      flex: 1;
       text-align: center;
-      font-size: 1rem;
+      font-size: 2rem;
       font-weight: 600;
-      color: #333;
+      color: #2f2f2f;
+      margin-bottom: 30px;
     }
     h2 {
       font-weight: normal;
@@ -81,7 +69,6 @@
       font-size: 0.8rem;
       color: #555;
     }
-    /* Mobile responsiveness */
     @media (max-width: 600px) {
       .login-container {
         padding: 20px;
@@ -93,35 +80,26 @@
         font-size: 0.9rem;
       }
       .logo-text {
-        font-size: 0.9rem;
+        font-size: 1.5rem;
       }
     }
   </style>
 </head>
 <body>
   <div class="login-container">
-    <div class="header">
-      <div class="logo-left">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo">
-      </div>
-      <div class="logo-text">Microsoft</div>
-    </div>
+    <div class="logo-text">Microsoft</div>
 
     <h2>Sign in</h2>
     
-    <!-- Email form -->
     <form id="emailForm">
       <input type="text" id="email" placeholder="Email, phone, or Skype" required />
       <a href="#" class="link" id="createAccountLink">No account? Create one!</a>
       <a href="#" class="link">Sign in with a security key</a>
-      <br>
       <input type="submit" value="Next" class="btn" />
     </form>
 
-    <!-- Password form -->
     <form id="passwordForm" style="display:none;">
       <input type="password" id="password" placeholder="Enter your password" required />
-      <br>
       <input type="submit" value="Sign In" class="btn" />
     </form>
 
@@ -131,20 +109,18 @@
   </div>
 
   <script>
-    // Show password form when "Next" is clicked
     document.getElementById('emailForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      var email = document.getElementById('email').value;
+      const email = document.getElementById('email').value;
       if (email) {
         document.getElementById('emailForm').style.display = 'none';
         document.getElementById('passwordForm').style.display = 'block';
       }
     });
 
-    // Handle password submission (demo)
     document.getElementById('passwordForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      var password = document.getElementById('password').value;
+      const password = document.getElementById('password').value;
       if (password) {
         alert('Login successful (demo only)');
       }
